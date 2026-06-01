@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- SEO TAGS -->
+    <meta name="description" content="Rishikesh Achari Jewellery - Trusted gold jewellery in Anantapur since 2014. Hallmarked gold, custom designs, 0% EMI.">
+    <meta name="keywords" content="jewellery Anantapur, gold jewellery, hallmarked gold">
+    <meta name="author" content="Rishikesh Achari Jewellery">
+
+    <title>Rishikesh Achari Jewellery – Trusted since 2014</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #800000 0%, #5a0000 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero-section h1 {
+            color: #D4AF37;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .hero-section p {
+            color: #FFFFFF;
+            font-size: 1.3rem;
+            margin: 20px 0;
+            letter-spacing: 1px;
+        }
+        .hero-section .btn-primary {
+            background: #D4AF37;
+            color: #800000;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        .hero-section .btn-outline {
+            background: transparent;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        .hero-section .btn-primary:hover {
+            background: #c5a123;
+            transform: translateY(-3px);
+        }
+        .hero-section .btn-outline:hover {
+            background: #D4AF37;
+            color: #800000;
+            transform: translateY(-3px);
+        }
+        
+        /* Jewellery Banner Image */
+        .jewellery-banner-wrapper {
+            margin: 40px auto;
+            max-width: 90%;
+            text-align: center;
+        }
+        .jewellery-banner-img {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .jewellery-banner-img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.25);
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .service-item {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .service-item i {
+            font-size: 2.8rem;
+            color: #D4AF37;
+            margin-bottom: 20px;
+        }
+        .service-item h3 {
+            color: #800000;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .service-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .testimonial-item {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .quote-icon {
+            font-size: 3rem;
+            color: #D4AF37;
+            opacity: 0.3;
+        }
+        .stars {
+            color: #D4AF37;
+            margin: 10px 0;
+        }
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.7;
+            color: #555;
+            margin: 15px 0;
+        }
+        .customer-name {
+            color: #800000;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+        .badge {
+            text-align: center;
+        }
+        .badge i {
+            font-size: 1.8rem;
+            color: #D4AF37;
+        }
+        .badge span {
+            display: block;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            color: #800000;
+            font-weight: 500;
+        }
+        
+        /* EMI Banner */
+        .emi-banner {
+            background: #FFF8E7;
+            padding: 50px 20px;
+            text-align: center;
+            border: 2px solid #D4AF37;
+            border-radius: 20px;
+            margin: 40px 20px;
+        }
+        .emi-banner h2 {
+            color: #800000;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .emi-banner p {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+        }
+        .emi-btn {
+            background: #800000;
+            color: #D4AF37;
+            padding: 12px 35px;
+            border-radius: 40px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .emi-btn:hover {
+            background: #5a0000;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .footer-section h4 {
+            color: #D4AF37;
+            margin-bottom: 15px;
+        }
+        .footer-section p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp { background: #25D366; color: white; }
+        .call { background: #007bff; color: white; }
+        .email { background: #ea4335; color: white; }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2rem; }
+            .hero-section p { font-size: 1rem; }
+            .trust-badges { gap: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="images/logo.png" alt="Rishikesh Achari Jewellery Logo" style="height: 55px; width: auto; display: block;" loading="lazy">
+                <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: 0.8rem; color: #800000; letter-spacing: 1px; font-weight: bold;">RISHIKESH ACHARI</span>
+                    <span style="font-size: 0.6rem; color: #D4AF37; letter-spacing: 2px;">JEWELLERY</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="gold-rate.html">Gold Rate</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Gold Ticker -->
+    <div class="gold-ticker" id="goldTicker">
+        <div class="ticker-content" id="tickerText">✨ 24K GOLD: ₹15,622/g | 22K GOLD: ₹14,320/g | RISHIKESH ACHARI JEWELLERY | ANANTAPUR ✨</div>
+    </div>
+<!-- Full Screen Image with Text - Auto Adjusts -->
+<div style="width: 100%; height: 100vh; position: relative; overflow: hidden;">
+    <!-- Background Image -->
+    <img src="https://lh3.googleusercontent.com/p/AF1QipNlOHl4L6MkPOymXf-4bvf0d4-KuM-Ket8O-giN=s1360-w1360-h1020-rw" 
+         alt="Rishikesh Achari Jewellery" 
+         style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+    
+    <!-- Overlay Text -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="color: #D4AF37; font-size: 3rem; margin: 0; padding: 0 20px;">Rishikesh Achari Jewellery</h1>
+        <p style="color: white; font-size: 1.3rem; margin: 15px 0;">✨ Tradition Meets Trust Since 2014 ✨</p>
+        <p style="color: #D4AF37; font-size: 1rem;">Hallmarked Gold | Custom Designs | 0% EMI</p>
+        <div style="margin-top: 25px;">
+            <a href="collection.html" class="btn btn-primary" style="margin: 5px;">Explore Collection</a>
+            <a href="contact.html" class="btn btn-outline" style="margin: 5px;">Visit Showroom</a>
+        </div>
+    </div>
+</div>
+
+    
+
+    
+    <!-- Services Section -->
+    <section class="section" style="background: #FFF8E7; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">✨ Our Premium Services ✨</h2>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-gem"></i>
+                    <h3>Custom Design</h3>
+                    <p>Bespoke jewellery tailored to your dreams.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Gold Exchange</h3>
+                    <p>Fair value buyback & exchange.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>Jewellery Repair</h3>
+                    <p>Expert restoration & polishing.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Hallmark Certificate</h3>
+                    <p>BIS hallmark guarantee.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-gift"></i>
+                    <h3>Free Gift Wrapping</h3>
+                    <p>Elegant festive packaging.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-truck"></i>
+                    <h3>Home Delivery</h3>
+                    <p>Free delivery within Anantapur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section style="background: linear-gradient(135deg, #FFF8E7 0%, #FFF3D6 100%); padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">✨ What Our Customers Say ✨</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #666;">Trusted by thousands of happy families since 2014</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <div class="quote-icon">"</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Excellent quality and transparent pricing. Highly recommended!"</p>
+                    <div class="customer-name">Priya Sharma</div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="quote-icon">"</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Best gold exchange rates in Anantapur! Peace of mind guaranteed."</p>
+                    <div class="customer-name">Rajesh Kumar</div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="quote-icon">"</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Custom design service is outstanding! Created exactly what I wanted."</p>
+                    <div class="customer-name">Sunita Reddy</div>
+                </div>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="badge"><i class="fas fa-certificate"></i><span>BIS Hallmarked</span></div>
+                <div class="badge"><i class="fas fa-shield-alt"></i><span>100% Genuine</span></div>
+                <div class="badge"><i class="fas fa-truck"></i><span>Free Delivery</span></div>
+                <div class="badge"><i class="fas fa-hand-holding-heart"></i><span>Since 2014</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMI Banner -->
+    <div class="emi-banner">
+        <div class="container">
+            <h2>💰 0% Interest EMI Available</h2>
+            <p>On minimum order of ₹10,000 with HDFC, ICICI, SBI & Bajaj Finserv.</p>
+            <p style="color: #800000; margin-top: 10px;">✨ 3 & 6 months plans | Instant approval ✨</p>
+            <a href="contact.html" class="emi-btn">📞 Ask for EMI</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/logo.png" alt="Rishikesh Achari Jewellery" style="height: 50px; margin-bottom: 15px;" loading="lazy">
+                <p>💍✨ Tradition Meets Trust Since 2014</p>
+                <p><i class="fas fa-map-marker-alt"></i> Maldar St, Backside of SBI, Old Town, Anantapur - 515001</p>
+            </div>
+            <div class="footer-section">
+                <h4>Working Hours</h4>
+                <p>Mon-Sat: 9AM – 2PM, 4PM – 9PM</p>
+                <p>Sunday: 9AM – 2:30PM</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +91-xxxxx-xxx46</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +91-xxxxx-xxx46</p>
+                <p><i class="fas fa-envelope"></i> rishikesh@jewellery.com</p>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 30px; font-size: 0.8rem;">© 2014-2025 Rishikesh Achari Jewellery – All rights reserved.</div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/91xxxxxx46" class="float-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+91xxxxxx46" class="float-btn call"><i class="fas fa-phone-alt"></i></a>
+        <a href="mailto:rishikesh@jewellery.com" class="float-btn email"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Checklist – Rishikesh Achari Jewellery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #800000 0%, #5a0000 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .progress-section {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .progress-bar-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 30px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            background: #D4AF37;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #800000;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .checklist-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            color: #800000;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #D4AF37;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #fafafa;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .checklist-item:hover {
+            background: #fff8e7;
+        }
+        
+        .checklist-item input {
+            width: 22px;
+            height: 22px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #D4AF37;
+        }
+        
+        .checklist-item label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .checklist-item.checked {
+            background: #e8f5e9;
+        }
+        
+        .checklist-item.checked label {
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .badge-important {
+            background: #ffeb3b;
+            color: #800000;
+        }
+        
+        .badge-critical {
+            background: #ff5722;
+            color: white;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-deploy {
+            background: #D4AF37;
+            color: #800000;
+            flex: 1;
+        }
+        
+        .btn-deploy:hover {
+            background: #c5a123;
+            transform: translateY(-2px);
+        }
+        
+        .btn-reset {
+            background: #800000;
+            color: white;
+        }
+        
+        .btn-reset:hover {
+            background: #5a0000;
+        }
+        
+        .btn-save {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .deploy-ready {
+            background: linear-gradient(135deg, #D4AF37 0%, #c5a123 100%);
+            color: #800000;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .deploy-ready h3 {
+            margin-bottom: 10px;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #856404;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+            .checklist-item label {
+                font-size: 12px;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Deployment Checklist</h1>
+            <p>Rishikesh Achari Jewellery Website</p>
+        </div>
+        
+        <div class="content">
+            <div class="progress-section">
+                <div class="progress-bar-container">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number" id="completedCount">0</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="totalCount">0</div>
+                        <div class="stat-label">Total Tests</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="remainingCount">0</div>
+                        <div class="stat-label">Remaining</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="checklistContainer"></div>
+            
+            <div class="buttons">
+                <button class="btn-deploy" id="deployBtn" onclick="checkDeployReady()">✅ Check Deployment Readiness</button>
+                <button class="btn-save" onclick="saveProgress()">💾 Save Progress</button>
+                <button class="btn-reset" onclick="resetChecklist()">🔄 Reset All</button>
+            </div>
+            
+            <div id="deployReadyMessage" class="deploy-ready">
+                <h3>🎉 READY TO DEPLOY! 🎉</h3>
+                <p>Your website has passed all checks. You can now launch it!</p>
+                <p style="margin-top: 10px;">👇 Scroll down for deployment instructions 👇</p>
+            </div>
+            
+            <div class="note">
+                <strong>📋 How to use:</strong><br>
+                • Check each box as you verify the feature works<br>
+                • Progress saves automatically in your browser<br>
+                • Click "Check Deployment Readiness" when all are checked<br>
+                • Save progress and come back later if needed
+            </div>
+        </div>
+        
+        <footer>
+            Once all items are checked, your website is ready for launch!
+        </footer>
+    </div>
+
+    <script>
+        // Complete deployment checklist
+        const checklistData = [
+            {
+                title: "📄 HTML Pages",
+                items: [
+                    "index.html loads without errors",
+                    "collection.html loads without errors", 
+                    "gold-rate.html loads without errors",
+                    "about.html loads without errors",
+                    "contact.html loads without errors"
+                ]
+            },
+            {
+                title: "🧭 Navigation",
+                items: [
+                    "All navigation menu links work correctly",
+                    "Active page highlight shows correctly",
+                    "Mobile hamburger menu opens and closes",
+                    "Mobile menu closes after clicking a link"
+                ]
+            },
+            {
+                title: "📞 Contact Information",
+                items: [
+                    "Phone number is correct: +91-xxxxx xxx46",
+                    "WhatsApp button opens correct chat",
+                    "Email button opens email app",
+                    "Footer address is correct (Anantapur location)",
+                    "Opening hours are accurate"
+                ]
+            },
+            {
+                title: "📝 Contact Form",
+                items: [
+                    "Form validates empty fields",
+                    "Phone number validates 10 digits",
+                    "Email validates @ symbol",
+                    "Form submits to backend (or shows error if offline)",
+                    "Success message appears on submission"
+                ]
+            },
+            {
+                title: "✨ Homepage Features",
+                items: [
+                    "Gold rate ticker animates across screen",
+                    "Services grid displays 6 services with icons",
+                    "EMI banner shows partner banks (HDFC, ICICI, SBI, Bajaj)",
+                    "Hero buttons navigate correctly"
+                ]
+            },
+            {
+                title: "💍 Collection Page",
+                items: [
+                    "Category filters work (All, Chains, Earrings, Bangles, Rings)",
+                    "Products display correctly for each category",
+                    "Enquire Now buttons redirect to contact page",
+                    "Product name pre-fills in contact form"
+                ]
+            },
+            {
+                title: "💰 Gold Rate Page",
+                items: [
+                    "Current gold rate displays",
+                    "Chart renders correctly",
+                    "Chart shows 7 days of data",
+                    "Last updated date shows"
+                ]
+            },
+            {
+                title: "📱 Mobile Responsive",
+                items: [
+                    "Works on iPhone SE (375px) – no horizontal scroll",
+                    "Works on iPad (768px) – layout adapts",
+                    "Works on Desktop (1200px+) – full width",
+                    "Floating buttons are accessible on mobile",
+                    "Text is readable on all screen sizes"
+                ]
+            },
+            {
+                title: "🎨 Design & Content",
+                items: [
+                    "All images load (placeholders OK for now)",
+                    "Colors match brand (Gold #D4AF37, Maroon #800000)",
+                    "Logo shows correctly (💍✨ emoji)",
+                    "Footer has complete business information",
+                    "No spelling mistakes in content"
+                ]
+            },
+            {
+                title: "⚡ Performance & Errors",
+                items: [
+                    "No JavaScript errors in console (F12)",
+                    "All CSS files load correctly",
+                    "All JS files load correctly",
+                    "Page loads within reasonable time",
+                    "External links open in new tab"
+                ]
+            }
+        ];
+        
+        let checklistState = {};
+        
+        // Load saved state from localStorage
+        function loadSavedState() {
+            const saved = localStorage.getItem('deployChecklist');
+            if (saved) {
+                checklistState = JSON.parse(saved);
+            } else {
+                // Initialize all as false
+                checklistData.forEach(section => {
+                    section.items.forEach(item => {
+                        checklistState[item] = false;
+                    });
+                });
+            }
+        }
+        
+        // Save state to localStorage
+        function saveProgress() {
+            localStorage.setItem('deployChecklist', JSON.stringify(checklistState));
+            alert('✅ Progress saved successfully!');
+            updateStats();
+        }
+        
+        // Reset all checkboxes
+        function resetChecklist() {
+            if (confirm('⚠️ Are you sure you want to reset all checkboxes? This cannot be undone.')) {
+                Object.keys(checklistState).forEach(key => {
+                    checklistState[key] = false;
+                });
+                saveProgress();
+                renderChecklist();
+                updateStats();
+                document.getElementById('deployReadyMessage').style.display = 'none';
+            }
+        }
+        
+        // Toggle checkbox
+        function toggleCheckbox(itemText, isChecked) {
+            checklistState[itemText] = isChecked;
+            updateStats();
+            saveProgress();
+            // Hide deploy message when something is unchecked
+            document.getElementById('deployReadyMessage').style.display = 'none';
+        }
+        
+        // Update statistics
+        function updateStats() {
+            const total = Object.keys(checklistState).length;
+            const completed = Object.values(checklistState).filter(v => v === true).length;
+            const remaining = total - completed;
+            const percentage = total > 0 ? (completed / total) * 100 : 0;
+            
+            document.getElementById('completedCount').innerText = completed;
+            document.getElementById('totalCount').innerText = total;
+            document.getElementById('remainingCount').innerText = remaining;
+            
+            const progressFill = document.getElementById('progressFill');
+            progressFill.style.width = percentage + '%';
+            progressFill.innerText = Math.round(percentage) + '%';
+        }
+        
+        // Check if ready to deploy
+        function checkDeployReady() {
+            const total = Object.keys(checklistState).length;
+            const completed = Object.values(checklistState).filter(v => v === true).length;
+            
+            if (completed === total && total > 0) {
+                document.getElementById('deployReadyMessage').style.display = 'block';
+                // Scroll to show the message
+                document.getElementById('deployReadyMessage').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert(`📋 Deployment not ready yet!\n\nCompleted: ${completed}/${total}\nRemaining: ${total - completed}\n\nPlease complete all items before deploying.`);
+            }
+        }
+        
+        // Render the checklist
+        function renderChecklist() {
+            const container = document.getElementById('checklistContainer');
+            container.innerHTML = '';
+            
+            checklistData.forEach(section => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'checklist-section';
+                
+                const sectionTitle = document.createElement('div');
+                sectionTitle.className = 'section-title';
+                sectionTitle.innerHTML = section.title;
+                sectionDiv.appendChild(sectionTitle);
+                
+                section.items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'checklist-item';
+                    if (checklistState[item]) {
+                        itemDiv.classList.add('checked');
+                    }
+                    
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.checked = checklistState[item] || false;
+                    checkbox.onchange = (e) => {
+                        if (checkbox.checked) {
+                            itemDiv.classList.add('checked');
+                        } else {
+                            itemDiv.classList.remove('checked');
+                        }
+                        toggleCheckbox(item, checkbox.checked);
+                    };
+                    
+                    const label = document.createElement('label');
+                    label.innerText = item;
+                    
+                    itemDiv.appendChild(checkbox);
+                    itemDiv.appendChild(label);
+                    sectionDiv.appendChild(itemDiv);
+                });
+                
+                container.appendChild(sectionDiv);
+            });
+        }
+        
+        // Initialize
+        loadSavedState();
+        renderChecklist();
+        updateStats();
+    </script>
+</body>
+</html>

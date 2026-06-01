@@ -1,0 +1,44 @@
+/* client/css/responsive.css */
+/* Tablet and desktop overrides */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .nav-container {
+        flex-wrap: nowrap;
+    }
+    .floating-buttons {
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .gold-ticker {
+        font-size: 0.9rem;
+    }
+}
